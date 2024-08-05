@@ -3444,3 +3444,33 @@ input, select, textarea {
 			border: none;  /* Adjust as needed for icon size */
 		}
 
+		.logo .symbol img {
+			width: 100px; /* Default image width */
+			height: auto;
+		}
+		
+		.logo .text .title {
+			font-size: 1em; /* Default font size for title */
+			color: #9F1D2E;
+		}
+		
+		.logo .text span {
+			font-size: 1em; /* Default font size for text */
+		}
+		
+		/* Responsive styles */
+		@media (max-width: 600px) {
+			.logo .symbol img {
+				width: 95px !important;
+				height: auto !important; /* Smaller image width for smaller screens */
+			}
+		
+			.logo .text .title {
+				font-size: 0.85em; /* Smaller font size for title */
+			}
+		
+			.logo .text span {
+				font-size: 0.85em; /* Smaller font size for text */
+			}
+		}
+
