@@ -32,16 +32,22 @@
 					</header>
 
 				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-					</nav>
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-me-temp.html">Resume</a></li>
+						<li>
+							<a href="javascript:void(0);" onclick="toggleSubMenu(event)">Projects <span class="arrow">&#9654;</span></a>
+							<ul class="submenu" id="projects-submenu">
+								<li><a href="guess-who.html">Guess Who?</a></li>
+								<li><a href="monk-seal.html">Hawaiian Monkseal</a></li>
+								<li><a href="volunteer-app.html">Volunteer App</a></li>
+								<li><a href="canvas-calendar.html">Canvas Calendar</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -71,32 +77,27 @@
 					</div>
 
 				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Contact Information</h2>
-								<p>
-								  Name: Holden Schermer<br>
-								  Email: <a href="mailto:holden@example.com">holden@example.com</a><br>
-								  Phone: <a href="tel:+1234567890">+1 234 567 890</a>
-								</p>
-							  </section>
-							<section>
-								<h2>Connect</h2>
-								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-						</div>
-					</footer>
-
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Contact Information</h2>
+							<p>
+							  Name: Holden Schermer<br>
+							  Email: <a href="mailto:hmschermer@college.harvard.edu">hmschermer@college.harvard.edu</a><br>
+							  Phone: <a href="tel:+18083887955">+1 (808) 388-7955</a>
+							</p>
+						  </section>
+						<section>
+							<h2>Connect</h2>
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/holdenschermer/" class="icon brands style2 fa-linkedin"><span class="label">Dribbble</span></a></li>
+								<li><a href="https://github.com/HoldenSch" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="mailto:hmschermer@college.harvard.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="tel:+18083887955" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</footer>
 			</div>
 
 		<!-- Scripts -->
@@ -105,6 +106,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/sub_nav.js"></script>
 
 	</body>
 </html>

@@ -3371,29 +3371,46 @@ input, select, textarea {
 			display: flex;
 			overflow: hidden;
 			width: 100%;
-		  }
-		  
-		  .carousel-inner {
+		}
+		
+		.carousel-inner {
 			display: flex;
 			gap: 20px; /* Add spacing between images */
-			animation: bannermove 20s linear infinite;
-		  }
-		  
-		  .carousel-inner img {
+		}
+		
+		.carousel-inner img {
 			height: 100%;
 			object-fit: cover; /* Maintain aspect ratio */
 			box-shadow: 2px 2px 8px #8a8a8a;
 			cursor: pointer; /* Add pointer cursor for clickable images */
-		  }
-		  
-		  @keyframes bannermove {
+		}
+		
+		#carousel1 .carousel-inner {
+			animation: bannermove1 20s linear infinite;
+		}
+		
+		#carousel2 .carousel-inner {
+			animation: bannermove2 30s linear infinite;
+		}
+		
+		@keyframes bannermove1 {
 			0% {
-			  transform: translateX(0);
+				transform: translateX(0);
 			}
 			100% {
-			  transform: translateX(calc(-25% + 25vw)); /* Adjust for infinite loop */
+				transform: translateX(calc(-30% + 30vw)); /* Adjust for infinite loop */
 			}
-		  }
+		}
+		
+		@keyframes bannermove2 {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(calc(-100% + 100vw)); /* Adjust for infinite loop */
+			}
+		}
+		
 		  
 		  .enlarged-view {
 			display: none; /* Hidden by default */
@@ -3443,6 +3460,7 @@ input, select, textarea {
 			font-size: 0.6em; 
 			border: none;  /* Adjust as needed for icon size */
 		}
+		
 
 		.logo .symbol img {
 			width: 100px; /* Default image width */
@@ -3530,4 +3548,54 @@ input, select, textarea {
 			flex: 1;
 		}
 
-	
+		/* Add the keyframes for the bounce animation with a pause */
+		@keyframes bounce {
+			0%, 20%, 50%, 70%, 90%, 100% {
+				transform: translateY(0);
+			}
+			40% {
+				transform: translateY(-30px);
+			}
+			60% {
+				transform: translateY(-15px);
+			}
+		}
+		
+		/* Apply the bounce animation to the image */
+		.logo .symbol img {
+			animation: bounce 3s infinite; /* Duration can remain the same */
+			animation-timing-function: ease-in-out;
+		}
+
+		.submenu {
+			list-style-type: none;
+			padding-left: 20px;
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: max-height 0.5s ease, opacity 0.5s ease;
+		}
+		
+		.submenu.show {
+			max-height: 500px; /* Set this to a value that can fit your submenu items */
+			opacity: 1;
+		}
+		
+		.submenu li {
+			margin: 0; /* Ensure there's no margin */
+			line-height: 1; /* Reduce line height if needed */
+		}
+
+        /* Arrow styling */
+        .arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+			font-size: 10px;
+			position: relative;
+    		top: -2.7px;
+			margin-left: 5px;
+        }
+
+        .arrow.down {
+            transform: rotate(90deg);
+        }

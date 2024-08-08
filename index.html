@@ -40,16 +40,22 @@
 					</header>
 
 				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-					</nav>
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-me-temp.html">Resume</a></li>
+						<li>
+							<a href="javascript:void(0);" onclick="toggleSubMenu(event)">Projects <span class="arrow">&#9654;</span></a>
+							<ul class="submenu" id="projects-submenu">
+								<li><a href="guess-who.html">Guess Who?</a></li>
+								<li><a href="monk-seal.html">Hawaiian Monkseal</a></li>
+								<li><a href="volunteer-app.html">Volunteer App</a></li>
+								<li><a href="canvas-calendar.html">Canvas Calendar</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -73,34 +79,35 @@
 								</article>
 								<article class="style2">
 									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
+										<img src="images/monk-seal-bg.jpg" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Lorem</h2>
+									<a href="monk-seal.html">
+										<h2>Hawaiian Monkseal</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Full stack website dedicated to the identification,
+												education, and establishment of a public database for the critically endangered Hawaiian monk seal species</p>
 										</div>
 									</a>
 								</article>
 								<article class="style3">
 									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
+										<img src="images/volunteer-app-bg.png" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Feugiat</h2>
+									<a href="volunteer-app.html">
+										<h2>Volunteer App</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Map-based mobile app promoting local volunteer opportunities using the Google Maps API and Flutter</p>
 										</div>
 									</a>
 								</article>
 								<article class="style4">
 									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
+										<img src="images/canvas-bg.jpg" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Tempus</h2>
+									<a href="canvas-calendar.html">
+										<h2>Canvas Calendar</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Auto-scheduling assignment creation tool for Canvas and 'Iolani's rotating block schedule</p>
 										</div>
 									</a>
 								</article>
@@ -226,6 +233,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/sub_nav.js"></script>
 
 	</body>
 </html>
