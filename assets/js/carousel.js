@@ -1,32 +1,55 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel-inner');
-    const images = document.querySelectorAll('.carousel-inner img');
+    const carousels = document.querySelectorAll('.carousel-inner');
     const enlargedView = document.getElementById('enlargedView');
     const enlargedImage = document.getElementById('enlargedImage');
     
-    // Clone images to create an infinite loop effect
-    images.forEach(img => {
-      const clone = img.cloneNode(true);
-      carousel.appendChild(clone);
+    // Process each carousel separately
+    carousels.forEach(carousel => {
+        const originalImages = carousel.querySelectorAll('img');
+        
+        // Clone images to create an infinite loop effect
+        originalImages.forEach(img => {
+            const clone = img.cloneNode(true);
+            carousel.appendChild(clone);
+        });
     });
   
-    images.forEach(img => {
-      img.addEventListener('click', function() {
-        carousel.style.animationPlayState = 'paused'; // Stop the animation
-        enlargedImage.src = img.src; // Set the source of the enlarged image
-        enlargedView.style.display = 'flex'; // Display the enlarged view
-      });
+    // Add click handlers for all images in all carousels (original and cloned)
+    carousels.forEach(carousel => {
+        carousel.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', function() {
+                // Pause all carousels
+                carousels.forEach(c => {
+                    c.style.animationPlayState = 'paused';
+                });
+                
+                enlargedImage.src = img.src;
+                enlargedImage.alt = img.alt;
+                enlargedView.style.display = 'flex';
+            });
+        });
     });
   
-    // Restart the carousel animation
+    // Close enlarged view when clicking on it
     enlargedView.addEventListener('click', closeEnlargedView);
-  });
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && enlargedView.style.display === 'flex') {
+            closeEnlargedView();
+        }
+    });
+});
   
-  function closeEnlargedView() {
-    const carousel = document.querySelector('.carousel-inner');
+function closeEnlargedView() {
+    const carousels = document.querySelectorAll('.carousel-inner');
     const enlargedView = document.getElementById('enlargedView');
     
-    carousel.style.animationPlayState = 'running'; // Resume the animation
-    enlargedView.style.display = 'none'; // Hide the enlarged view
-  }
+    // Resume all carousel animations
+    carousels.forEach(carousel => {
+        carousel.style.animationPlayState = 'running';
+    });
+    
+    enlargedView.style.display = 'none';
+}
   

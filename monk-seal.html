@@ -6,11 +6,91 @@
 -->
 <html>
 	<head>
-		<title>Monkseal</title>
+		<title>Hawaiian Monk Seal Conservation</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Small enhancements to existing design */
+			.heading-container {
+				margin-bottom: 2rem;
+			}
+			
+			.heading-container .fa-github {
+				margin-left: 1rem;
+				transition: color 0.3s ease;
+			}
+			
+			.heading-container .fa-github:hover {
+				color: #f2849e;
+			}
+			
+			.smaller-text {
+				opacity: 0.9;
+			}
+			
+			.imagecarousel {
+				margin-bottom: 2rem;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			}
+			
+			.carousel-inner img {
+				transition: transform 0.2s ease;
+			}
+			
+			.carousel-inner img:hover {
+				transform: scale(1.02);
+			}
+			
+			.enlarged-view {
+				transition: opacity 0.3s ease;
+			}
+			
+			.content-spacing {
+				margin-bottom: 1.5rem;
+			}
+			
+			/* Subtle improvement to tech stack display */
+			h3 {
+				margin-bottom: 1rem;
+			}
+			
+			/* Fix carousel speeds - make them much slower */
+			#carousel1 .carousel-inner {
+				animation: bannermove1 60s linear infinite !important;
+			}
+			
+			#carousel2 .carousel-inner {
+				animation: bannermove2 80s linear infinite !important;
+			}
+			
+			/* Better carousel animations with proper calculations */
+			@keyframes bannermove1 {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+			
+			@keyframes bannermove2 {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+			
+			/* Pause animation on hover for better UX */
+			.imagecarousel:hover .carousel-inner {
+				animation-play-state: paused !important;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -43,6 +123,7 @@
 								<li><a href="monk-seal.html">Hawaiian Monkseal</a></li>
 								<li><a href="volunteer-app.html">Volunteer App</a></li>
 								<li><a href="canvas-calendar.html">Canvas Calendar</a></li>
+								<li><a href="arcs-ios-app.html">Arcs iOS App</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -56,41 +137,49 @@
 								<a href="https://github.com/keskami/Monkseal-Database-Website" class="icon brands style2 fa-github"><span class="label">GitHub</span></a>
 							</h1>
 							<h3>Tech Stack: <span class="smaller-text">React, Node.js, Express.js, PostgreSQL, AWS RDS, HTML, CSS, and JavaScript</span></h3>
-							<h3 style="color: #B8E0D2; margin-top: -40px;">Role: <span class="smaller-text">Co-creator</span></h3>
-						</body>
-							<p>This Hawaiian Monk Seal Conservation Website, created in collaboration with NOAA and The Marine Mammal Center, is a digital platform designed to support the preservation efforts of the critically endangered Hawaiian monk seal. This full stack web application serves as a comprehensive resource for the identification, education, and public engagement regarding the conservation of this unique marine species. The primary objective of the website is to create a user-friendly, educational, and interactive platform that promotes the conservation of the Hawaiian monk seal by providing detailed information, tracking individual seals, and encouraging community involvement. Key features include a robust identification database that allows users to identify individual monk seals based on various markers such as tags, scars, and natural bleaching patterns, comprehensive educational content on the biology, behavior, and conservation status of the Hawaiian monk seal, and tools for community engagement that enable the public to contribute to conservation efforts, report sightings, and participate in community events and volunteer opportunities.</p>
-							<p>The Hawaiian Monk Seal Conservation Website also empowers citizen scientists to actively participate in conservation efforts. Users can utilize the website to identify monk seals they encounter on the beach by inputting various identification markers such as tags, scars, and natural bleaching patterns. Once a monk seal is identified, the website notifies NOAA scientists, prompting them to visit the site and check on the seal. This ensures that proper legal procedures are followed, including coning off and clearing the area around the monk seal and putting up signs to inform the public and prevent disturbance. This citizen scientist involvement is crucial for the timely protection and monitoring of the monk seals, enhancing the overall effectiveness of conservation efforts.</p>
-							<p>Unfortunately, I handed over control of the database back to NOAA, which is why only parts of the website can be displayed below. 
-							</p>
+							<h3 style="color: #B8E0D2; margin-top: -20px;">Role: <span class="smaller-text">Co-creator</span></h3>
+							
+							<div class="content-spacing">
+								<p>This Hawaiian Monk Seal Conservation Website, created in collaboration with NOAA and The Marine Mammal Center, is a digital platform designed to support the preservation efforts of the critically endangered Hawaiian monk seal. This full stack web application serves as a comprehensive resource for the identification, education, and public engagement regarding the conservation of this unique marine species. The primary objective of the website is to create a user-friendly, educational, and interactive platform that promotes the conservation of the Hawaiian monk seal by providing detailed information, tracking individual seals, and encouraging community involvement. Key features include a robust identification database that allows users to identify individual monk seals based on various markers such as tags, scars, and natural bleaching patterns, comprehensive educational content on the biology, behavior, and conservation status of the Hawaiian monk seal, and tools for community engagement that enable the public to contribute to conservation efforts, report sightings, and participate in community events and volunteer opportunities.</p>
+							</div>
+							
+							<div class="content-spacing">
+								<p>The Hawaiian Monk Seal Conservation Website also empowers citizen scientists to actively participate in conservation efforts. Users can utilize the website to identify monk seals they encounter on the beach by inputting various identification markers such as tags, scars, and natural bleaching patterns. Once a monk seal is identified, the website notifies NOAA scientists, prompting them to visit the site and check on the seal. This ensures that proper legal procedures are followed, including coning off and clearing the area around the monk seal and putting up signs to inform the public and prevent disturbance. This citizen scientist involvement is crucial for the timely protection and monitoring of the monk seals, enhancing the overall effectiveness of conservation efforts.</p>
+							</div>
+							
+							<div class="content-spacing">
+								<p>Unfortunately, I handed over control of the database back to NOAA, which is why only parts of the website can be displayed below.</p>
+							</div>
+							
 							<div id="carousel1" class="imagecarousel">
 								<div class="carousel-inner">
-									<img src="images/mb-island-seal.png" alt="" />
-									<img src="images/mb-gender-seal.png" alt="" />
-									<img src="images/mb-bleach-num.png" alt="" />
-									<img src="images/mb-enter-bleach.png" alt="" />
-									<img src="images/mb-scar-seal.png" alt="" />
-									<img src="images/mb-scar-select.png" alt="" />
-									<img src="images/mb-bleach-nat.png" alt="" />
-									<img src="images/mb-nat-bleach-select.png" alt="" />
-									<img src="images/mb-tag-seal.png" alt="" />
-									<img src="images/mb-tag-num.png" alt="" />
+									<img src="images/mb-island-seal.png" alt="Island Selection Interface" />
+									<img src="images/mb-gender-seal.png" alt="Gender Identification Tool" />
+									<img src="images/mb-bleach-num.png" alt="Bleach Pattern Number Input" />
+									<img src="images/mb-enter-bleach.png" alt="Bleach Pattern Entry Form" />
+									<img src="images/mb-scar-seal.png" alt="Scar Identification Interface" />
+									<img src="images/mb-scar-select.png" alt="Scar Pattern Selection" />
+									<img src="images/mb-bleach-nat.png" alt="Natural Bleaching Patterns" />
+									<img src="images/mb-nat-bleach-select.png" alt="Natural Bleach Selection Tool" />
+									<img src="images/mb-tag-seal.png" alt="Tag Identification System" />
+									<img src="images/mb-tag-num.png" alt="Tag Number Input Interface" />
 								</div>
 							</div>
 							<div id="carousel2" class="imagecarousel">
 								<div class="carousel-inner">
-									<img src="images/dt-home-seal.jpeg" alt="" />
-									<img src="images/dt-mmc.jpeg" alt="" />
-									<img src="images/dt-how-to-seal.png" alt="" />
-									<img src="images/dt-filter-seal.png" alt="" />
-									<img src="images/dt-find-seal.png" alt="" />
+									<img src="images/dt-home-seal.jpeg" alt="Homepage Dashboard" />
+									<img src="images/dt-mmc.jpeg" alt="Marine Mammal Center Integration" />
+									<img src="images/dt-how-to-seal.png" alt="Educational How-To Guide" />
+									<img src="images/dt-filter-seal.png" alt="Advanced Filtering System" />
+									<img src="images/dt-find-seal.png" alt="Seal Search Results" />
 								</div>
 							</div>
 
-							  <div id="enlargedView" class="enlarged-view" onclick="closeEnlargedView()">
+							<div id="enlargedView" class="enlarged-view" onclick="closeEnlargedView()">
 								<img id="enlargedImage" src="" alt="Enlarged Image">
-							  </div>
+							</div>
 
-							  <script src="assets/js/carousel.js"></script> 
+							<script src="assets/js/carousel.js"></script> 
 						</div>
 					</div>
 
@@ -108,7 +197,7 @@
 						<section>
 							<h2>Connect</h2>
 							<ul class="icons">
-								<li><a href="https://www.linkedin.com/in/holdenschermer/" class="icon brands style2 fa-linkedin"><span class="label">Dribbble</span></a></li>
+								<li><a href="https://www.linkedin.com/in/holdenschermer/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
 								<li><a href="https://github.com/HoldenSch" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
 								<li><a href="mailto:hmschermer@college.harvard.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
 								<li><a href="tel:+18083887955" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
