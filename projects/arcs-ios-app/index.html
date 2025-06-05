@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arcs iOS App</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<style>
+			/* Small enhancements to existing design */
+			.heading-container {
+				margin-bottom: 2rem;
+			}
+			
+			.heading-container .fa-github {
+				margin-left: 1rem;
+				transition: color 0.3s ease;
+			}
+			
+			.heading-container .fa-github:hover {
+				color: #f2849e;
+			}
+			
+			.smaller-text {
+				opacity: 0.9;
+			}
+			
+			.imagecarousel {
+				margin-bottom: 2rem;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				height: 650px;
+				overflow-x: auto;
+				overflow-y: hidden;
+			}
+			
+			.carousel-inner img {
+				transition: transform 0.2s ease;
+			}
+			
+			.carousel-inner img:hover {
+				transform: scale(1.02);
+			}
+			
+			.enlarged-view {
+				transition: opacity 0.3s ease;
+			}
+			
+			.content-spacing {
+				margin-bottom: 1.5rem;
+			}
+			
+			/* Subtle improvement to tech stack display */
+			h3 {
+				margin-bottom: 1rem;
+			}
+			
+			/* Fix carousel speeds - make them much slower */
+			#carousel1 .carousel-inner {
+				animation: bannermove1 180s linear infinite !important;
+			}
+			
+			#carousel2 .carousel-inner {
+				animation: bannermove2 80s linear infinite !important;
+			}
+			
+			/* Better carousel animations with proper calculations */
+			@keyframes bannermove1 {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+			
+			@keyframes bannermove2 {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+			
+			/* Pause animation on hover for better UX */
+			.imagecarousel:hover .carousel-inner {
+				animation-play-state: paused !important;
+			}
+			
+			/* Make carousel loop seamlessly */
+			.carousel-inner {
+				display: flex;
+				width: max-content;
+			}
+			
+			.carousel-inner img {
+				flex-shrink: 0;
+				height: 650px;
+				width: auto;
+				margin-right: 20px;
+			}
+			
+			/* Custom scrollbar for carousel */
+			.imagecarousel::-webkit-scrollbar {
+				height: 8px;
+			}
+			
+			.imagecarousel::-webkit-scrollbar-track {
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 4px;
+			}
+			
+			.imagecarousel::-webkit-scrollbar-thumb {
+				background: rgba(255, 255, 255, 0.3);
+				border-radius: 4px;
+			}
+			
+			.imagecarousel::-webkit-scrollbar-thumb:hover {
+				background: rgba(255, 255, 255, 0.5);
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header and Menu will be inserted by navbar.js -->
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">	
+							<h1 class="heading-container">
+								Arcs iOS App
+								<a href="https://github.com/HoldenSch/Arcs-iOS-App" class="icon brands style2 fa-github"><span class="label">GitHub</span></a>
+							</h1>
+							<h3>Tech Stack: <span class="smaller-text">Swift, SwiftUI, Firebase, Cloud Functions, JavaScript</span></h3>
+							<h3 style="color: #B8E0D2; margin-top: -20px;">Role: <span class="smaller-text">Solo Developer</span></h3>
+							
+							<div class="content-spacing">
+								<p>Arcs is a social accountability app that helps you stick to your habits by connecting you with friends. Instead of trying to build habits alone, you can create challenges with friends and track progress together. The app supports different types of challenges depending on what works best for your goals - photo challenges where you submit daily pictures, alarm challenges to help each other wake up on time, or simple notification check-ins for things like drinking water or taking breaks. Friends can invite each other to challenges and see how everyone is doing.</p>
+							</div>
+							
+							<div class="content-spacing">
+								<p>The app makes it easy to stay connected and motivated through a simple friend system using shareable codes. You can set up custom reminders, view activity from your challenge groups, and track your progress over time. Whether you're trying to exercise more consistently, wake up earlier, or just want to be more mindful about daily habits, Arcs provides a straightforward way to do it with friends rather than going it alone. The social element helps keep you accountable while making habit-building feel more like a shared activity than a chore.</p>
+							</div>
+							
+							<!-- Video Demo -->
+							<div class="video-container" style="margin-bottom: 2rem; text-align: center;">
+								<iframe width="750" height="750" 
+									src="https://drive.google.com/file/d/1Fmv2omGTc3SX3kI_17B_Pb3cjaU0n5aG/preview" 
+									frameborder="0" 
+									allow="autoplay"
+									style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+								</iframe>
+							</div>
+							
+							<!-- App Screenshots Carousel -->
+							<div id="carousel1" class="imagecarousel">
+								<div class="carousel-inner">
+									<!-- First set of images -->
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.55.37.png" alt="App Login Screen" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.55.42.png" alt="Main Dashboard" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.56.03.png" alt="Profile View" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.56.16.png" alt="Settings Interface" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.56.20.png" alt="Data Visualization" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.59.02.png" alt="Navigation Menu" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.01.59.png" alt="Content View" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.02.02.png" alt="Feature Overview" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.28.png" alt="User Interface" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.33.png" alt="App Functions" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.49.png" alt="Advanced Features" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.59.png" alt="Real-time Updates" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.04.03.png" alt="Cloud Integration" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.04.25.png" alt="Firebase Features" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.05.png" alt="App Performance" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.08.png" alt="User Experience" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.40.png" alt="Mobile Design" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.55.png" alt="Final Interface" />
+									<!-- Duplicate set for seamless loop -->
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.55.37.png" alt="App Login Screen" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.55.42.png" alt="Main Dashboard" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.56.03.png" alt="Profile View" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.56.16.png" alt="Settings Interface" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.56.20.png" alt="Data Visualization" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.59.02.png" alt="Navigation Menu" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.01.59.png" alt="Content View" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.02.02.png" alt="Feature Overview" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.28.png" alt="User Interface" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.33.png" alt="App Functions" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.49.png" alt="Advanced Features" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.03.59.png" alt="Real-time Updates" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.04.03.png" alt="Cloud Integration" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.04.25.png" alt="Firebase Features" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.05.png" alt="App Performance" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.08.png" alt="User Experience" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.40.png" alt="Mobile Design" />
+									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 17.07.55.png" alt="Final Interface" />
+								</div>
+							</div>
+
+							<div id="enlargedView" class="enlarged-view" onclick="closeEnlargedView()">
+								<img id="enlargedImage" src="" alt="Enlarged Image">
+							</div>
+
+							<script src="../../assets/js/carousel.js"></script> 
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Contact Information</h2>
+							<p>
+							  Name: Holden Schermer<br>
+							  Email: <a href="mailto:hmschermer@college.harvard.edu">hmschermer@college.harvard.edu</a><br>
+							  Phone: <a href="tel:+18083887955">+1 (808) 388-7955</a>
+							</p>
+						  </section>
+						<section>
+							<h2>Connect</h2>
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/holdenschermer/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://github.com/HoldenSch" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="mailto:hmschermer@college.harvard.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="tel:+18083887955" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+			<script src="../../assets/js/sub_nav.js"></script>
+			<script src="../../assets/js/navbar.js"></script>
+
+	</body>
+</html> 

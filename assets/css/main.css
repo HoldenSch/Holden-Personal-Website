@@ -3599,3 +3599,207 @@ input, select, textarea {
         .arrow.down {
             transform: rotate(90deg);
         }
+
+/* Custom Mobile Menu Styles - Ultra Clean Grey Theme */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background: #f8f9fa;
+    color: #333333;
+    z-index: 10000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -1px 0 15px rgba(0, 0, 0, 0.12);
+    border: none;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-header {
+    padding: 2rem 2rem 1.5rem 2rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.mobile-menu-header h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #6c757d;
+    text-transform: none;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    color: #6c757d;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+.mobile-menu-close:hover {
+    color: #f2849e;
+    background: rgba(242, 132, 158, 0.1);
+}
+
+.mobile-menu-content {
+    padding: 1rem 0 2rem 0;
+    background: #f8f9fa;
+}
+
+.mobile-menu-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu-nav > li {
+    border: none;
+}
+
+.mobile-menu-nav .menu-link {
+    display: block;
+    padding: 1.2rem 2rem;
+    color: #495057;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.mobile-menu-nav .menu-link:hover {
+    background: rgba(242, 132, 158, 0.08);
+    color: #f2849e;
+}
+
+.menu-item-with-submenu .submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f1f3f4;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item-with-submenu .submenu.show {
+    max-height: 300px;
+}
+
+.submenu li {
+    border: none;
+}
+
+.submenu .project-link {
+    display: block;
+    padding: 1rem 2.5rem;
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.submenu .project-link:hover {
+    background: rgba(242, 132, 158, 0.08);
+    color: #f2849e;
+}
+
+.projects-toggle {
+    position: relative;
+}
+
+.projects-toggle .arrow {
+    float: right;
+    transition: transform 0.3s ease;
+    font-size: 0.7rem;
+    color: #adb5bd;
+    margin-right: 0.3rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+}
+
+.projects-toggle .arrow.down {
+    transform: rotate(90deg);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    .mobile-menu {
+        width: 320px;
+        right: -320px;
+    }
+    
+    .mobile-menu-header {
+        padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+    }
+    
+    .mobile-menu-header h2 {
+        font-size: 0.95rem;
+    }
+    
+    .mobile-menu-close {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+    
+    .mobile-menu-content {
+        padding: 0.8rem 0 1.5rem 0;
+    }
+    
+    .mobile-menu-nav .menu-link {
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .submenu .project-link {
+        padding: 0.8rem 2rem;
+        font-size: 0.85rem;
+    }
+}

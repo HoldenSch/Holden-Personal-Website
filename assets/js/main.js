@@ -90,7 +90,14 @@
 			});
 
 	// Menu.
+	function initializeMenu() {
 		var $menu = $('#menu');
+		
+		if ($menu.length === 0) {
+			// Menu not found, wait a bit and try again
+			setTimeout(initializeMenu, 50);
+			return;
+		}
 
 		$menu.wrapInner('<div class="inner"></div>');
 
@@ -181,5 +188,11 @@
 						$menu._hide();
 
 			});
+	}
+
+	// Initialize menu when DOM is ready
+	$(document).ready(function() {
+		initializeMenu();
+	});
 
 })(jQuery);
