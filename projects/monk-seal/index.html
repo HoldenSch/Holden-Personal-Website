@@ -35,9 +35,24 @@
 				border-radius: 8px;
 				overflow: hidden;
 				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				height: 650px;
+				position: relative;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			
+			.carousel-inner {
+				display: flex;
+				width: max-content;
+				position: relative;
+				transition: transform 0.5s ease;
 			}
 			
 			.carousel-inner img {
+				flex-shrink: 0;
+				height: 650px;
+				width: auto;
+				margin-right: 20px;
 				transition: transform 0.2s ease;
 			}
 			
@@ -58,37 +73,41 @@
 				margin-bottom: 1rem;
 			}
 			
-			/* Fix carousel speeds - make them much slower */
-			#carousel1 .carousel-inner {
-				animation: bannermove1 60s linear infinite !important;
-			}
-			
+			/* Remove the old animation styles */
+			#carousel1 .carousel-inner,
 			#carousel2 .carousel-inner {
-				animation: bannermove2 80s linear infinite !important;
+				animation: none !important;
 			}
 			
-			/* Better carousel animations with proper calculations */
-			@keyframes bannermove1 {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
+			/* Add navigation buttons */
+			.carousel-nav {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 40px;
+				height: 40px;
+				background: rgba(0, 0, 0, 0.5);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				z-index: 2;
+				transition: background 0.3s ease;
+				color: white;
+				font-size: 20px;
 			}
 			
-			@keyframes bannermove2 {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
+			.carousel-nav:hover {
+				background: rgba(0, 0, 0, 0.7);
 			}
 			
-			/* Pause animation on hover for better UX */
-			.imagecarousel:hover .carousel-inner {
-				animation-play-state: paused !important;
+			.carousel-prev {
+				left: 10px;
+			}
+			
+			.carousel-next {
+				right: 10px;
 			}
 		</style>
 	</head>
@@ -121,6 +140,8 @@
 							</div>
 							
 							<div id="carousel1" class="imagecarousel">
+								<div class="carousel-nav carousel-prev" onclick="scrollCarousel('prev', 'carousel1')">❮</div>
+								<div class="carousel-nav carousel-next" onclick="scrollCarousel('next', 'carousel1')">❯</div>
 								<div class="carousel-inner">
 									<img src="../../images/mb-island-seal.png" alt="Island Selection Interface" />
 									<img src="../../images/mb-gender-seal.png" alt="Gender Identification Tool" />
@@ -135,6 +156,8 @@
 								</div>
 							</div>
 							<div id="carousel2" class="imagecarousel">
+								<div class="carousel-nav carousel-prev" onclick="scrollCarousel('prev', 'carousel2')">❮</div>
+								<div class="carousel-nav carousel-next" onclick="scrollCarousel('next', 'carousel2')">❯</div>
 								<div class="carousel-inner">
 									<img src="../../images/dt-home-seal.jpeg" alt="Homepage Dashboard" />
 									<img src="../../images/dt-mmc.jpeg" alt="Marine Mammal Center Integration" />
@@ -148,7 +171,70 @@
 								<img id="enlargedImage" src="" alt="Enlarged Image">
 							</div>
 
-							<script src="../../assets/js/carousel.js"></script> 
+							<script src="../../assets/js/carousel.js"></script>
+							<script>
+								const carousels = {
+									carousel1: {
+										element: document.querySelector('#carousel1 .carousel-inner'),
+										position: 0
+									},
+									carousel2: {
+										element: document.querySelector('#carousel2 .carousel-inner'),
+										position: 0
+									}
+								};
+								
+								function scrollCarousel(direction, carouselId) {
+									const carousel = carousels[carouselId];
+									const images = carousel.element.querySelectorAll('img');
+									const imageWidth = images[0].offsetWidth + 20; // Width + margin
+									const maxScroll = (images.length / 2) * imageWidth;
+									
+									if (direction === 'next') {
+										carousel.position -= imageWidth;
+										if (carousel.position <= -maxScroll) {
+											carousel.position = 0;
+										}
+									} else {
+										carousel.position += imageWidth;
+										if (carousel.position > 0) {
+											carousel.position = -maxScroll + imageWidth;
+										}
+									}
+									
+									carousel.element.style.transform = `translateX(${carousel.position}px)`;
+								}
+								
+								// Auto-scroll functionality
+								let autoScrollIntervals = {};
+								
+								function startAutoScroll(carouselId) {
+									autoScrollIntervals[carouselId] = setInterval(() => {
+										scrollCarousel('next', carouselId);
+									}, 3000);
+								}
+								
+								function stopAutoScroll(carouselId) {
+									clearInterval(autoScrollIntervals[carouselId]);
+								}
+								
+								// Start auto-scroll when page loads
+								document.addEventListener('DOMContentLoaded', () => {
+									// Initialize both carousels
+									Object.keys(carousels).forEach(carouselId => {
+										startAutoScroll(carouselId);
+										
+										// Pause auto-scroll on hover
+										document.getElementById(carouselId).addEventListener('mouseenter', () => {
+											stopAutoScroll(carouselId);
+										});
+										
+										document.getElementById(carouselId).addEventListener('mouseleave', () => {
+											startAutoScroll(carouselId);
+										});
+									});
+								});
+							</script>
 						</div>
 					</div>
 

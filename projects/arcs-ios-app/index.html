@@ -36,11 +36,23 @@
 				overflow: hidden;
 				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 				height: 650px;
-				overflow-x: auto;
+				position: relative;
+				overflow-x: hidden;
 				overflow-y: hidden;
 			}
 			
+			.carousel-inner {
+				display: flex;
+				width: max-content;
+				position: relative;
+				transition: transform 0.5s ease;
+			}
+			
 			.carousel-inner img {
+				flex-shrink: 0;
+				height: 650px;
+				width: auto;
+				margin-right: 20px;
 				transition: transform 0.2s ease;
 			}
 			
@@ -61,50 +73,10 @@
 				margin-bottom: 1rem;
 			}
 			
-			/* Fix carousel speeds - make them much slower */
-			#carousel1 .carousel-inner {
-				animation: bannermove1 180s linear infinite !important;
-			}
-			
+			/* Remove the old animation styles */
+			#carousel1 .carousel-inner,
 			#carousel2 .carousel-inner {
-				animation: bannermove2 80s linear infinite !important;
-			}
-			
-			/* Better carousel animations with proper calculations */
-			@keyframes bannermove1 {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
-			}
-			
-			@keyframes bannermove2 {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
-			}
-			
-			/* Pause animation on hover for better UX */
-			.imagecarousel:hover .carousel-inner {
-				animation-play-state: paused !important;
-			}
-			
-			/* Make carousel loop seamlessly */
-			.carousel-inner {
-				display: flex;
-				width: max-content;
-			}
-			
-			.carousel-inner img {
-				flex-shrink: 0;
-				height: 650px;
-				width: auto;
-				margin-right: 20px;
+				animation: none !important;
 			}
 			
 			/* Custom scrollbar for carousel */
@@ -124,6 +96,35 @@
 			
 			.imagecarousel::-webkit-scrollbar-thumb:hover {
 				background: rgba(255, 255, 255, 0.5);
+			}
+			
+			/* Add navigation buttons */
+			.carousel-nav {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 40px;
+				height: 40px;
+				background: rgba(0, 0, 0, 0.5);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				z-index: 2;
+				transition: background 0.3s ease;
+			}
+			
+			.carousel-nav:hover {
+				background: rgba(0, 0, 0, 0.7);
+			}
+			
+			.carousel-prev {
+				left: 10px;
+			}
+			
+			.carousel-next {
+				right: 10px;
 			}
 		</style>
 	</head>
@@ -163,6 +164,8 @@
 							
 							<!-- App Screenshots Carousel -->
 							<div id="carousel1" class="imagecarousel">
+								<div class="carousel-nav carousel-prev" onclick="scrollCarousel('prev')">❮</div>
+								<div class="carousel-nav carousel-next" onclick="scrollCarousel('next')">❯</div>
 								<div class="carousel-inner">
 									<!-- First set of images -->
 									<img src="../../images/Arcs-Images/Simulator Screenshot - iPhone 16 Pro - 2025-06-04 at 16.55.37.png" alt="App Login Screen" />
@@ -209,7 +212,53 @@
 								<img id="enlargedImage" src="" alt="Enlarged Image">
 							</div>
 
-							<script src="../../assets/js/carousel.js"></script> 
+							<script src="../../assets/js/carousel.js"></script>
+							<script>
+								let currentPosition = 0;
+								const carousel = document.querySelector('.carousel-inner');
+								const images = carousel.querySelectorAll('img');
+								const imageWidth = images[0].offsetWidth + 20; // Width + margin
+								
+								function scrollCarousel(direction) {
+									const maxScroll = (images.length / 2) * imageWidth;
+									
+									if (direction === 'next') {
+										currentPosition -= imageWidth;
+										if (currentPosition <= -maxScroll) {
+											currentPosition = 0;
+										}
+									} else {
+										currentPosition += imageWidth;
+										if (currentPosition > 0) {
+											currentPosition = -maxScroll + imageWidth;
+										}
+									}
+									
+									carousel.style.transform = `translateX(${currentPosition}px)`;
+								}
+								
+								// Auto-scroll functionality
+								let autoScrollInterval;
+								
+								function startAutoScroll() {
+									autoScrollInterval = setInterval(() => {
+										scrollCarousel('next');
+									}, 3000);
+								}
+								
+								function stopAutoScroll() {
+									clearInterval(autoScrollInterval);
+								}
+								
+								// Start auto-scroll when page loads
+								document.addEventListener('DOMContentLoaded', () => {
+									startAutoScroll();
+									
+									// Pause auto-scroll on hover
+									document.querySelector('.imagecarousel').addEventListener('mouseenter', stopAutoScroll);
+									document.querySelector('.imagecarousel').addEventListener('mouseleave', startAutoScroll);
+								});
+							</script>
 						</div>
 					</div>
 
